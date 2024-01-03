@@ -1,0 +1,90 @@
+<div class="container-fluid main">
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+        <h2>Top Free MMORPG Games for PC and Browser In 2023!</h2>
+        <h3><b>{{ count }}</b> free-to-play <b>MMORPG games</b> found in our games list!</h3>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+
+      <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
+        <div class="optionbox">
+          <span class="me-2">Name:</span>
+          <input type="text" class="form-control" placeholder="Search by name" #name (keyup)="filters(name.value, platform.value, genre.value)">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
+        <div class="optionbox">
+          <span class="me-1">Platform:</span>
+          <select class="form-select" #platform (change)="filters(name.value, platform.value, genre.value)">
+            <option value="" selected>All Platforms</option>
+            <option value="{{ platform.key }}" *ngFor="let platform of platforms">{{ platform.key }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 mb-3">
+        <div class="optionbox">
+          <span class="me-1">Genre/Tag:</span>
+          <select class="form-select"  #genre (change)="filters(name.value, platform.value, genre.value)">
+            <option value="" selected>All Genres</option>
+            <option value="{{ genre.key }}" *ngFor="let genre of genres">{{ genre.key }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+
+      <div class="col-sm-12" *ngIf="gamesList.length == 0">
+        <p>No games found</p>
+     </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4" *ngFor="let game of gamesList">
+        <a href="#" #refEl [routerLink]="['/game', game.id]" class="link-game" (mouseenter)="onMouseenter(game.id, refEl)" (mouseleave)="onMouseleave(refEl)">
+          <div class="card">
+            <div class="image-wrapper">
+              <img class="card-img-top" loading="lazy" src="{{ game.thumbnail }}" alt="{{ game.title }}">
+              <div class="loader-wrapper">
+                <div class="spinner-grow ftg-blue" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <video class="video" loop="" preload="none" muted="muted"></video>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title text-truncate">{{ game.title }}</h5>
+              <p class="card-text text-truncate">{{ game.short_description }}</p>
+
+              <div class="text-end">
+                <span class="badge badge-secondary text-dark badge-genre">{{ game.genre }}</span>
+
+                <span *ngIf="game.platform == 'PC (Windows)'">
+                  <i class="bi bi-windows ms-2" title="Available on Windows"></i>
+                </span>
+
+                <span *ngIf="game.platform == 'Web Browser'">
+                  <i class="bi bi-window ms-2" title="Available on Web Browser"></i>
+                </span>
+
+                <span *ngIf="game.platform == 'PC (Windows), Web Browser'">
+                  <i class="bi bi-windows ms-2" title="Available on Windows"></i>
+                  <i class="bi bi-window ms-2" title="Available on Web Browser"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+

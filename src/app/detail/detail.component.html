@@ -1,0 +1,144 @@
+<div class="container-fluid main detail">
+  <div class="background" style="background-image: url('{{ background }}');"></div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 col-md-4 col-lg-3 relative">
+        <div class="sidebar">
+          <div class="card" #refEl (mouseenter)="onMouseenter(refEl)" (mouseleave)="onMouseleave(refEl)">
+            <div class="image-wrapper">
+              <img loading="lazy" src="{{ gameDetail.thumbnail }}" alt="{{ gameDetail.title }}" class="full-width">
+              <div class="loader-wrapper">
+                <div class="spinner-grow ftg-blue" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+              <video class="video" loop="" preload="none" muted="muted"></video>
+            </div>
+          </div>
+
+          <a type="button" name="playnow" class="btn btn-primary play-button" href="{{ gameDetail.game_url }}" target="_blank">
+            <strong>PLAY NOW </strong><i class="bi bi-box-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-8 col-lg-9">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" [routerLink]="['/']">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ gameDetail.title }}</li>
+          </ol>
+        </nav>
+
+        <h1>{{ gameDetail.title }}</h1>
+
+        <div class="summary">
+          <p class="collapse" id="collapseSummary">
+            {{ gameDetail.description }}
+          </p>
+          <a class="collapsed" data-bs-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
+        </div>
+
+        <h2 class="note-margin">Additional Information</h2>
+        <p class="note"><i class="bi bi-info-circle-fill"></i> Please note this free-to-play game may or may not offer optional in-game purchases.</p>
+        <hr class="mt-2 mb-3">
+
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <h3>Title</h3>
+            <p>{{ gameDetail.title }}</p>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <h3>Developer</h3>
+            <p>{{ gameDetail.developer }}</p>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <h3>Publisher</h3>
+            <p>{{ gameDetail.publisher }}</p>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <h3>Release Date</h3>
+            <p>{{ gameDetail.release_date }}</p>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <h3>Genre</h3>
+            <p>{{ gameDetail.genre }}</p>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <h3>Platform</h3>
+            <p>{{ gameDetail.platform }}</p>
+          </div>
+        </div>
+
+        <div class="screenshots" *ngIf="gameDetail.screenshots !=undefined && gameDetail.screenshots.length > 0">
+          <h2>{{ gameDetail.title }} Screenshots</h2>
+          <hr class="mt-2 mb-3">
+
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-4" *ngFor="let screenshot of gameDetail.screenshots">
+              <a href="{{ screenshot.image }}" data-fancybox="gallery">
+                <img src="{{ screenshot.image }}" alt="" class="full-width">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="min-requeriments" *ngIf="gameDetail.minimum_system_requirements != undefined">
+          <h2>Minimum System Requirements</h2>
+          <hr class="mt-2 mb-3">
+
+          <div class="row" *ngIf="gameDetail.minimum_system_requirements.os != null; else browser">
+            <div class="col-sm-12 col-md-6">
+              <h3>OS</h3>
+              <p>{{ gameDetail.minimum_system_requirements.os }}</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <h3>Processor</h3>
+              <p>{{ gameDetail.minimum_system_requirements.processor }}</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <h3>Memory</h3>
+              <p>{{ gameDetail.minimum_system_requirements.memory }}</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <h3>Graphics</h3>
+              <p>{{ gameDetail.minimum_system_requirements.graphics }}</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <h3>Storage</h3>
+              <p>{{ gameDetail.minimum_system_requirements.storage }}</p>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+              <h3>Additional Notes</h3>
+              <p>Specifications may change during development</p>
+            </div>
+          </div>
+        </div>
+
+
+        <ng-template #browser>
+          {{ gameDetail.title }} is a browser based game and should run smoothly on practically any PC with a updated web-browser.
+
+          If you have old hardware or software, you may still be able to play {{ gameDetail.title }}, but your game experience may suffer. For the best gameplay experience, we recommend the latest versions of Firefox, Chrome, or Internet Explorer.
+        </ng-template>
+
+        <hr class="mt-2 mb-3">
+        <p class="copyright">All material on this page is copyrighted by ©{{ gameDetail.publisher }} and their respective licensors. All other trademarks are the property of their respective owners.</p>
+
+      </div>
+    </div>
+  </div>
+</div>

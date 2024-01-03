@@ -1,0 +1,279 @@
+.full-width {
+  width: 100%;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(28, 28, 28, 0.6);
+  -webkit-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.075);
+  background-color: #272b30;
+}
+
+.main {
+  background-color: #272b30;
+  min-height: calc(100vh - 72px);
+  margin-top: 72px;
+  padding-top: 30px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  color: #aaa;
+}
+
+.main h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.main h3 {
+  font-size: 15px;
+  color: #7a8288;
+}
+
+.main .card {
+  transition: all .2s ease-in-out;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  background-color: #32383e;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.6);
+  border-radius: 0.25rem;
+}
+
+.main .card .image-wrapper {
+  position: relative;
+}
+
+.main .card .text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main .card .card-title {
+  color: #aaa;
+  font-size: 19px;
+}
+
+.main .card .card-text {
+  color: #7a8288;
+  font-size: 15px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  padding-right: 0;
+  padding-left: 0;
+  left: 0;
+  top: 0;
+}
+
+.loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,47,255,.247);
+  display: none;
+}
+
+.ftg-blue {
+  color: #49acff;
+}
+
+.spinner-grow {
+  width: 2rem;
+  height: 2rem;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-animation: .75s linear infinite spinner-grow;
+  animation: .75s linear infinite spinner-grow;
+}
+
+.spinner-border, .spinner-grow {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.link-game {
+  text-decoration: none;
+}
+
+.link-game:hover .loader-wrapper {
+  display: flex;
+}
+
+.link-game:hover .card {
+  transform: scale(1.02);
+  box-shadow: 0 .9rem 1rem rgba(0,0,0,.199)!important;
+  z-index: 1;
+}
+
+.link-game:hover video {
+  transform: scale(1.02);
+}
+
+.badge-genre {
+  padding-top: 1px;
+  padding-bottom: 2px;
+  transform: translateY(-12%);
+  color: #272b30;
+  background-color: #7a8288;
+}
+
+i.bi {
+  color: #7a8288;
+}
+
+.main.detail {
+  position: relative;
+  z-index: 0;
+}
+
+.background {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 38rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0rem;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.main.detail h1 {
+  font-size: 32px;
+}
+
+.main.detail h2 {
+  font-size: 24px;
+  margin-top: 48px;
+}
+
+.main.detail h3 {
+  color: #7a8288;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.main.detail h2.note-margin {
+  margin-bottom: 10px;
+}
+
+.relative {
+  position: relative;
+}
+
+.sidebar {
+  position: relative;
+}
+
+.summary {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.summary p {
+  white-space: pre-wrap;
+}
+
+.summary p.collapse:not(.show) {
+  height: 42px !important;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.summary p.collapsing {
+  min-height: 42px !important;
+}
+
+.summary a.collapsed:after  {
+  content: '+ Read More';
+}
+
+.summary a:not(.collapsed):after {
+  content: '- Read Less';
+}
+
+.breadcrumb {
+  font-size: 12px;
+}
+
+.breadcrumb-item.active {
+  color: #7a8288 !important;
+}
+
+.breadcrumb-item a {
+  color: #aaa;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #7a8288 !important;
+}
+
+hr {
+  border: 0 !important;
+  border-top: 1px solid rgba(94, 84, 84) !important;
+}
+
+.play-button {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.play-button i.bi {
+  color: #fff;
+}
+
+.optionbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.optionbox span {
+  color: #7a8288;
+}
+
+.optionbox select {
+  max-width: fit-content;
+  background-color: #272b30;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%234799eb' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+}
+
+.optionbox input {
+  max-width: 250px;
+}
